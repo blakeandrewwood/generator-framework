@@ -1,5 +1,6 @@
 # framework 
 A simple environment setup to being rapid protyping of your framework.
+
 This generator is still a work in progress.
 
 ## Installation
@@ -18,7 +19,7 @@ Generate new components by:
 
 	$ yo framework:component "name"
 
-Each component you make wil be encapsulated in it's own folder
+Each component you make will be encapsulated in it's own folder
 located in `src/components/` which contains a `html`, `css`, and `js` file.
 
 Start the webpack server:
