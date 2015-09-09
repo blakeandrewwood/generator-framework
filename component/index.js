@@ -36,7 +36,7 @@ var ComponentGenerator = generators.NamedBase.extend({
 	appendToWebpackEntry: function() {
 		var cssPrefix = this.config.get('css_prefix');
 		var cssExt = this.config.get('css_ext');
-		var cssType = this.config.get('css_type');
+		var cssName = this.config.get('css_name');
 		// Create temp file from template
 		this.fs.copyTpl(
 			this.templatePath('_entry.js'),
@@ -45,7 +45,7 @@ var ComponentGenerator = generators.NamedBase.extend({
 				component_name: this.name,
 				css_prefix: cssPrefix,
 				css_ext: cssExt,
-				css_type: cssType,
+				css_name: cssName,
 			}
 		);
 		// Hack: No callback on this.fs.copyTpl

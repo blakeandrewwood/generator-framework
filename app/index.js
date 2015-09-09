@@ -55,7 +55,7 @@ var WorkshopGenerator = generators.Base.extend({
 		this.config.set('project_version', this.projectVersion);
 		this.config.set('author_name', this.authorName);
 		if(this.useStylus) {
-			this.config.set('css_prefix', 'raw');
+			this.config.set('css_prefix', 'style!css');
 			this.config.set('css_name', 'stylus');
 			this.config.set('css_ext', 'styl');
 		} else {
