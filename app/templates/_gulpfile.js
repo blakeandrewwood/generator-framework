@@ -20,7 +20,7 @@ var paths = {
 * Bower 
 */
 gulp.task('bower', function () {
-  gulp.src('./index.html')
+  gulp.src('./index-css.html')
     .pipe(wiredep({
       optional: 'configuration',
       goes: 'here'

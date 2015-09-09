@@ -12,6 +12,8 @@
 
 // Main style sheet and normalization
 require("!<%= css_prefix %>!<%= css_name %>!./style.<%= css_ext %>");
+var htmlIncludes = require("html!../html-css.html");
+document.write(htmlIncludes);
 document.write("<h2><%= site_name %></h2>");
 
 /** -----------------------------------------------------

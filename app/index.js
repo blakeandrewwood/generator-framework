@@ -83,6 +83,7 @@ var WorkshopGenerator = generators.Base.extend({
 		this.copy("_gulpfile.js", "gulpfile.js");
 		this.copy("_webpack.config.js", "webpack.config.js");
 		this.copy("_style." + cssExt , "src/style." + cssExt);
+		this.copy("_index-css.html", "index-css.html");
 		// Context
 		var context = {
 			site_name: projectName,
