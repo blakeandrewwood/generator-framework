@@ -95,6 +95,8 @@ var WorkshopGenerator = generators.Base.extend({
 		// Templates
 		this.template("_entry.js", "src/entry.js", context);
 		this.template("_package.json", "package.json", context);
+		this.template("_.bowerrc", ".bowerrc", context);
+		this.template("_bower.json", "bower.json", context);
 		this.template("_index.html", "index.html", context);
 	},
 	installDependencies: function() {

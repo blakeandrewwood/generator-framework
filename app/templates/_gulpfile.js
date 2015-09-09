@@ -4,6 +4,7 @@
 
 var gulp = require('gulp');
 var gutil = require('gulp-util');
+var wiredep = require('wiredep').stream;
 var webpack = require('webpack');
 var WebpackDevServer = require('webpack-dev-server');
 
@@ -14,6 +15,18 @@ var paths = {
 /** --------------------------------------------------------
 * Tasks
 * ------------------------------------------------------ */
+
+/** 
+* Bower 
+*/
+gulp.task('bower', function () {
+  gulp.src('./index.html')
+    .pipe(wiredep({
+      optional: 'configuration',
+      goes: 'here'
+    }))
+    .pipe(gulp.dest('./dest'));
+});
 
 /** 
 * Webpack
