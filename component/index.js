@@ -9,20 +9,25 @@ var ComponentGenerator = generators.NamedBase.extend({
 	},
 	copyMainFiles: function() {
 		// Context
-		var context = {
-			componentName: this.name
-		}
+		var context = { componentName: this.name }
 		// Files
 		var baseDir = "src/components/" + this.name + "/";
-		var demoHtmlFile = baseDir + "demo.html";
+		// Html
 		var htmlFile = baseDir + this.name + ".html";
-		var cssFile = baseDir + this.name + ".css";
-		var jsFile = baseDir + this.name + ".js";
-		// Template
 		this.template("_demo.html", demoHtmlFile, context);
 		this.template("_index.html", htmlFile, context);
-		this.template("_style.css", cssFile, context);
+		// Js
+		var jsFile = baseDir + this.name + ".js";
 		this.template("_script.js", jsFile, context);
+		// CSS
+		var useStylus = this.config.get('use_stylus');
+		if(useStylus) {
+			var stylFile = baseDir + this.name + ".styl";
+			this.template("_style.styl", stylFile, context);
+		} else {
+			var cssFile = baseDir + this.name + ".css";
+			this.template("_style.css", cssFile, context);
+		}
 	},
 	cleanupTemp: function() {
 		// First cleanup from last

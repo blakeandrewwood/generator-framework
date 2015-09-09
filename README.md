@@ -37,6 +37,6 @@ and begin creating your framework's components!
 5. Submit a pull request
 
 ## TODO
-- Add sass, stylus support
+- Add sass support
 - Interface webpack with gulp
 - Many other features...

@@ -24,23 +24,29 @@ var WorkshopGenerator = generators.Base.extend({
 		console.log(welcome);
 		// Prompts
 		var prompts = [{
-			name: 'appName',
+			name: 'projectName',
 			message: 'What is your project\'s name ?',
 			default: 'AmazingUI'
 		}, {
-			name: 'appVersion',
+			name: 'projectVersion',
 			message: 'Version ?',
 			default: '0.0.1'
 		}, {
 			name: 'authorName',
 			message: 'What is your name ?',
 			default: 'I don\'t have one.'
-		}];
+		}, {
+            type: 'confirm',
+            name: 'useStylus',
+            message: 'Would you like to write css in Stylus ?',
+            default: true
+        }];
 		// Complete
 		this.prompt(prompts, function (props) {
-			this.appName = props.appName;
-			this.appVersion = props.appVersion;
+			this.projectName = props.projectName;
+			this.projectVersion = props.projectVersion;
 			this.authorName = props.authorName;
+			this.useStylus = props.useStylus;
 			done();
 		}.bind(this));
 	},
@@ -55,11 +61,15 @@ var WorkshopGenerator = generators.Base.extend({
 		this.copy("_README.md", "README.md");
 		this.copy("_gulpfile.js", "gulpfile.js");
 		this.copy("_webpack.config.js", "webpack.config.js");
-		this.copy("_style.css", "src/style.css");
+		if(this.useStylus) {
+			this.copy("_style.styl", "src/style.styl");
+		} else {
+			this.copy("_style.css", "src/style.css");
+		}
 		// Context
 		var context = {
-			site_name: this.appName,
-			site_version: this.appVersion,
+			site_name: this.projectName,
+			site_version: this.projectVersion,
 			site_author: this.authorName
 		};
 		// Templates
@@ -69,6 +79,13 @@ var WorkshopGenerator = generators.Base.extend({
 	},
 	installDependencies: function() {
 		this.npmInstall([], { 'saveDev': true });
+	},
+	addConfigFile: function() {
+		this.config.set('project_name', this.projectName);
+		this.config.set('project_version', this.projectVersion);
+		this.config.set('author_name', this.authorName);
+		this.config.set('use_stylus', this.useStylus);
+		this.config.save();
 	},
 	finished: function() {
 		console.log('You\'re all set!');

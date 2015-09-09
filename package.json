@@ -1,6 +1,6 @@
 {
   "name": "generator-framework",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Soon to be a simple starting environment for creating front-end frameworks with the power of webpack.",
   "files": [
     "app",
