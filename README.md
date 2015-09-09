@@ -8,6 +8,7 @@ Install yeoman, framework, and webpack
 	$ npm install -g yo generator-framework webpack
 
 Run
+
 	$ yo framework
 
 Follow the instructions for setup!
@@ -35,6 +36,6 @@ and begin creating your framework's components!
 5. Submit a pull request
 
 ## TODO
-Add sass, stylus support
-Interface webpack with gulp
-Many other features
+- Add sass, stylus support
+- Interface webpack with gulp
+- Many other features...
