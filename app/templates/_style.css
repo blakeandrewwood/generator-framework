@@ -1,0 +1,21 @@
+/**
+*	Framework generated main style.css
+*	
+*	Generate new components by:	
+*	yo framework:component "name"
+*	
+*	Edit components in their encapsulated
+*	folder, webpack will update and display them.
+*		
+*	View README for more information.		
+*/
+
+/* Workshop default styles to display components */
+body {
+	background-color: rgb(250, 251, 252);
+	padding: 20px;
+}
+
+/** -----------------------------------------------------
+*	Project global styles	
+* -------------------------------------------------- */

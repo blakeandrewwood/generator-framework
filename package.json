@@ -1,0 +1,27 @@
+{
+  "name": "generator-framework",
+  "version": "0.0.1",
+  "description": "Soon to be a simple starting environment for creating front-end frameworks with the power of webpack.",
+  "files": [
+    "app",
+    "component"
+  ],
+  "keywords": [
+    "yeoman-generator",
+    "webpack",
+    "framework",
+    "css",
+    "generator"
+  ],
+  "author": "Blake Wood",
+  "license": "ISC",
+  "dependencies": {
+    "yeoman-generator": "^0.20.3"
+  },
+  "devDependencies": {
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/blakeandrewwood/generator-framework.git"
+  }
+}

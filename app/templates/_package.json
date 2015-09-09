@@ -1,0 +1,16 @@
+{
+  "name": "<%= site_name %>",
+  "version": "<%= site_version %>",
+  "description": "Command: webpack-dev-server --progress --colors\r Url: http://localhost:8080/webpack-dev-server/bundle",
+  "main": "dist/bundle.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "<%= site_author %>",
+  "license": "ISC",
+  "devDependencies": {
+    "gulp-util": "^3.0.6",
+    "html-loader": "^0.3.0",
+    "normalize.css": "^3.0.3"
+  }
+}
