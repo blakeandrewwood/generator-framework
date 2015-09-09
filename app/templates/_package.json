@@ -9,6 +9,8 @@
   "author": "<%= site_author %>",
   "license": "ISC",
   "devDependencies": {
+    "webpack": "^1.12.1",
+    "webpack-dev-server": "^1.10.1",
     "bower": "^1.5.2",
     "wiredep": "^3.0.0-beta",
     "gulp-util": "^3.0.6",

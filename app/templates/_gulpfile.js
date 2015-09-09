@@ -25,12 +25,13 @@ gulp.task('bower', function () {
       optional: 'configuration',
       goes: 'here'
     }))
-    .pipe(gulp.dest('./dest'));
+    .pipe(gulp.dest('./'));
 });
 
 /** 
 * Webpack
 */
+/*
 gulp.task('webpack', function() {
 	// Run webpack
 	webpack({
@@ -43,10 +44,12 @@ gulp.task('webpack', function() {
 		callback();
 	})
 });
+*/
 
 /** 
 * Webpack
 */
+/*
 gulp.task("webpack-dev-server", function(callback) {
     // Start a webpack-dev-server
     var compiler = webpack({
@@ -62,12 +65,9 @@ gulp.task("webpack-dev-server", function(callback) {
         // callback();
     });
 });
+*/
 
 /** 
-* Init 
+* Default 
 */
-gulp.task('init', function() {
-});
-
-// Default
-gulp.task('default', ['init']);
+gulp.task('default', ['bower']);
