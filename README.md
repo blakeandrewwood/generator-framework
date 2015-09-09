@@ -14,6 +14,10 @@ Run
 
 Follow the instructions for setup!
 
+Run gulp bower to install default packages
+
+	$ gulp bower 
+
 ## Usage
 Generate new components by:	
 
@@ -21,6 +25,14 @@ Generate new components by:
 
 Each component you make will be encapsulated in it's own folder
 located in `src/components/` which contains a `html`, `css`, and `js` file.
+
+Add new packages from bower to use with your components 
+
+	$ bower install jquery --save
+
+Automatically add bower packages to your index.html
+
+	$ gulp bower
 
 Start the webpack server:
 	
