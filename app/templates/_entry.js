@@ -11,7 +11,6 @@
 */
 
 // Main style sheet and normalization
-require("!style!css!../node_modules/normalize.css/normalize.css");
 require("!<%= css_prefix %>!<%= css_name %>!./style.<%= css_ext %>");
 document.write("<h2><%= site_name %></h2>");
 
