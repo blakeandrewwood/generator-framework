@@ -9,25 +9,19 @@ var ComponentGenerator = generators.NamedBase.extend({
 	},
 	copyMainFiles: function() {
 		// Context
-		var context = { componentName: this.name }
+		var context = { component_name: this.name }
 		// Files
 		var baseDir = "src/components/" + this.name + "/";
 		// Html
 		var htmlFile = baseDir + this.name + ".html";
-		this.template("_demo.html", demoHtmlFile, context);
 		this.template("_index.html", htmlFile, context);
 		// Js
 		var jsFile = baseDir + this.name + ".js";
 		this.template("_script.js", jsFile, context);
 		// CSS
-		var useStylus = this.config.get('use_stylus');
-		if(useStylus) {
-			var stylFile = baseDir + this.name + ".styl";
-			this.template("_style.styl", stylFile, context);
-		} else {
-			var cssFile = baseDir + this.name + ".css";
-			this.template("_style.css", cssFile, context);
-		}
+		var cssExt = this.config.get('css_ext');
+		var cssFile = baseDir + this.name + "." + cssExt;
+		this.template("_style." + cssExt, cssFile, context);
 	},
 	cleanupTemp: function() {
 		// First cleanup from last
@@ -40,11 +34,19 @@ var ComponentGenerator = generators.NamedBase.extend({
 		});
 	},
 	appendToWebpackEntry: function() {
+		var cssPrefix = this.config.get('css_prefix');
+		var cssExt = this.config.get('css_ext');
+		var cssType = this.config.get('css_type');
 		// Create temp file from template
 		this.fs.copyTpl(
 			this.templatePath('_entry.js'),
 			this.destinationPath('.tmp/entry.js'),
-			{ componentName: this.name }
+			{
+				component_name: this.name,
+				css_prefix: cssPrefix,
+				css_ext: cssExt,
+				css_type: cssType,
+			}
 		);
 		// Hack: No callback on this.fs.copyTpl
 		setTimeout(function() {

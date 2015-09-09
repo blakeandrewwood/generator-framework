@@ -1,1 +1,1 @@
-// components/<%= componentName %>.js
+// components/<%= component_name %>.js

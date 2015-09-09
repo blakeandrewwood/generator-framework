@@ -50,6 +50,21 @@ var WorkshopGenerator = generators.Base.extend({
 			done();
 		}.bind(this));
 	},
+	setConfigVariables: function() {
+		this.config.set('project_name', this.projectName);
+		this.config.set('project_version', this.projectVersion);
+		this.config.set('author_name', this.authorName);
+		if(this.useStylus) {
+			this.config.set('css_prefix', 'raw');
+			this.config.set('css_name', 'stylus');
+			this.config.set('css_ext', 'styl');
+		} else {
+			this.config.set('css_prefix', 'style');
+			this.config.set('css_name', 'css');
+			this.config.set('css_ext', 'css');
+		}
+		this.config.save();
+	},
 	scaffoldFolders: function() {
 		this.mkdir(".tmp");
 		this.mkdir("src");
@@ -57,20 +72,25 @@ var WorkshopGenerator = generators.Base.extend({
 		this.mkdir("dist");
 	},
 	copyMainFiles: function() {
+		var projectName = this.config.get('project_name');
+		var projectVersion = this.config.get('project_version');
+		var authorName = this.config.get('author_name');
+		var cssPrefix = this.config.get('css_prefix');
+		var cssExt = this.config.get('css_ext');
+		var cssName = this.config.get('css_name');
 		// Main files
 		this.copy("_README.md", "README.md");
 		this.copy("_gulpfile.js", "gulpfile.js");
 		this.copy("_webpack.config.js", "webpack.config.js");
-		if(this.useStylus) {
-			this.copy("_style.styl", "src/style.styl");
-		} else {
-			this.copy("_style.css", "src/style.css");
-		}
+		this.copy("_style." + cssExt , "src/style." + cssExt);
 		// Context
 		var context = {
-			site_name: this.projectName,
-			site_version: this.projectVersion,
-			site_author: this.authorName
+			site_name: projectName,
+			site_version: projectVersion,
+			site_author: authorName,
+			css_prefix: cssPrefix,
+			css_ext: cssExt,
+			css_name: cssName,
 		};
 		// Templates
 		this.template("_entry.js", "src/entry.js", context);
@@ -79,13 +99,6 @@ var WorkshopGenerator = generators.Base.extend({
 	},
 	installDependencies: function() {
 		this.npmInstall([], { 'saveDev': true });
-	},
-	addConfigFile: function() {
-		this.config.set('project_name', this.projectName);
-		this.config.set('project_version', this.projectVersion);
-		this.config.set('author_name', this.authorName);
-		this.config.set('use_stylus', this.useStylus);
-		this.config.save();
 	},
 	finished: function() {
 		console.log('You\'re all set!');
