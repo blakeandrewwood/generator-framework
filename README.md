@@ -1,5 +1,5 @@
 # framework 
-A simple environment setup to being rapid protyping of your framework.
+A simple environment setup for rapid protoyping of your UI framework.
 
 This generator is still a work in progress.
 
