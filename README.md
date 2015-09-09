@@ -1,5 +1,5 @@
 # framework 
-A simple environment setup for rapid protoyping of your UI framework.
+A simple environment setup for rapid protoyping of your UI framework using webpack.
 
 This generator is still a work in progress.
 
